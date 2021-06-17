@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>throttle &amp; debounce节流防抖 | 凌烟</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="https://fang-kang.gitee.io/blog-img/favicon.ico">
+    <meta name="description" content="stay true to the mission.">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.c0543776.css" as="style"><link rel="preload" href="/assets/js/app.4aa0e8ea.js" as="script"><link rel="preload" href="/assets/js/4.3a6b897f.js" as="script"><link rel="preload" href="/assets/js/1.97f2804a.js" as="script"><link rel="preload" href="/assets/js/2.13201674.js" as="script"><link rel="preload" href="/assets/js/36.1d919a3c.js" as="script"><link rel="prefetch" href="/assets/js/10.956d5498.js"><link rel="prefetch" href="/assets/js/11.251f530d.js"><link rel="prefetch" href="/assets/js/12.d01bf345.js"><link rel="prefetch" href="/assets/js/13.bb070dff.js"><link rel="prefetch" href="/assets/js/14.b543585c.js"><link rel="prefetch" href="/assets/js/15.b1bcf849.js"><link rel="prefetch" href="/assets/js/16.43b94681.js"><link rel="prefetch" href="/assets/js/17.aa1e97c6.js"><link rel="prefetch" href="/assets/js/18.aa235895.js"><link rel="prefetch" href="/assets/js/19.10a3cdf0.js"><link rel="prefetch" href="/assets/js/20.a125aaa0.js"><link rel="prefetch" href="/assets/js/21.9e6ce220.js"><link rel="prefetch" href="/assets/js/22.9b80c541.js"><link rel="prefetch" href="/assets/js/23.0e9e503f.js"><link rel="prefetch" href="/assets/js/24.fcded96a.js"><link rel="prefetch" href="/assets/js/25.6a74bbbd.js"><link rel="prefetch" href="/assets/js/26.92b3b14a.js"><link rel="prefetch" href="/assets/js/27.18fb41d5.js"><link rel="prefetch" href="/assets/js/28.1d8217aa.js"><link rel="prefetch" href="/assets/js/29.910249cb.js"><link rel="prefetch" href="/assets/js/30.7ffd4cf7.js"><link rel="prefetch" href="/assets/js/31.e5afbb5b.js"><link rel="prefetch" href="/assets/js/32.796285aa.js"><link rel="prefetch" href="/assets/js/33.4042bf41.js"><link rel="prefetch" href="/assets/js/34.b887e798.js"><link rel="prefetch" href="/assets/js/35.cf4833c1.js"><link rel="prefetch" href="/assets/js/37.4c63b466.js"><link rel="prefetch" href="/assets/js/38.4f2abbf2.js"><link rel="prefetch" href="/assets/js/39.663ea2e3.js"><link rel="prefetch" href="/assets/js/40.99d7fef1.js"><link rel="prefetch" href="/assets/js/41.24ea1bda.js"><link rel="prefetch" href="/assets/js/42.5ae1c9f5.js"><link rel="prefetch" href="/assets/js/43.61430462.js"><link rel="prefetch" href="/assets/js/44.95389ae8.js"><link rel="prefetch" href="/assets/js/45.e94972fb.js"><link rel="prefetch" href="/assets/js/46.4abcad03.js"><link rel="prefetch" href="/assets/js/47.5022029f.js"><link rel="prefetch" href="/assets/js/48.15206369.js"><link rel="prefetch" href="/assets/js/49.54505c66.js"><link rel="prefetch" href="/assets/js/5.32ec8265.js"><link rel="prefetch" href="/assets/js/50.cdc116d4.js"><link rel="prefetch" href="/assets/js/51.e6b2bae7.js"><link rel="prefetch" href="/assets/js/52.88cfc911.js"><link rel="prefetch" href="/assets/js/53.ea97ed47.js"><link rel="prefetch" href="/assets/js/54.636e88d0.js"><link rel="prefetch" href="/assets/js/55.ad5ebf00.js"><link rel="prefetch" href="/assets/js/56.68db72c1.js"><link rel="prefetch" href="/assets/js/57.e92d20ec.js"><link rel="prefetch" href="/assets/js/58.f1a79bf1.js"><link rel="prefetch" href="/assets/js/59.80f3636b.js"><link rel="prefetch" href="/assets/js/6.22876f96.js"><link rel="prefetch" href="/assets/js/60.5676553a.js"><link rel="prefetch" href="/assets/js/61.823d8bbc.js"><link rel="prefetch" href="/assets/js/62.3ea4862d.js"><link rel="prefetch" href="/assets/js/63.1db0a1d6.js"><link rel="prefetch" href="/assets/js/64.5808862e.js"><link rel="prefetch" href="/assets/js/65.9539285b.js"><link rel="prefetch" href="/assets/js/66.a50ff9e7.js"><link rel="prefetch" href="/assets/js/67.03936b73.js"><link rel="prefetch" href="/assets/js/68.3cbbbf1e.js"><link rel="prefetch" href="/assets/js/69.54b2e54e.js"><link rel="prefetch" href="/assets/js/7.06eda39e.js"><link rel="prefetch" href="/assets/js/8.d5a33fd8.js"><link rel="prefetch" href="/assets/js/9.0c4df056.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c0543776.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-04b97590><div data-v-04b97590><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-04b97590 data-v-04b97590><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-2a121430 data-v-04b97590 data-v-04b97590><h3 class="title" style="display:none;" data-v-2a121430 data-v-2a121430>凌烟</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2a121430 data-v-2a121430><input type="password" value="" data-v-2a121430> <span data-v-2a121430>Konck! Knock!</span> <button data-v-2a121430>OK</button></label> <div class="footer" style="display:none;" data-v-2a121430 data-v-2a121430><span data-v-2a121430><i class="iconfont reco-theme" data-v-2a121430></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2a121430>vuePress-theme-reco</a></span> <span data-v-2a121430><i class="iconfont reco-copyright" data-v-2a121430></i> <a data-v-2a121430><span data-v-2a121430>Fk</span>
+            
+          <span data-v-2a121430>2020 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-04b97590><header class="navbar" data-v-04b97590><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://fang-kang.gitee.io/blog-img/head.jpg" alt="凌烟" class="logo"> <span class="site-name">凌烟</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Js/" class="nav-link"><i></i>
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/uniApp/" class="nav-link"><i></i>
+  uniApp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/views/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于我
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      学习手册
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/es6" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Es6
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/ts" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/vue3.0" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Vue3.0
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/node" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Node
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-04b97590></div> <aside class="sidebar" data-v-04b97590><div class="personal-info-wrapper" data-v-5641b559 data-v-04b97590><img src="https://fang-kang.gitee.io/blog-img/head.jpg" alt="author-avatar" class="personal-img" data-v-5641b559> <h3 class="name" data-v-5641b559>
+    Fk
+  </h3> <div class="num" data-v-5641b559><div data-v-5641b559><h3 data-v-5641b559>47</h3> <h6 data-v-5641b559>Article</h6></div> <div data-v-5641b559><h3 data-v-5641b559>19</h3> <h6 data-v-5641b559>Tag</h6></div></div> <hr data-v-5641b559></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Js/" class="nav-link"><i></i>
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/uniApp/" class="nav-link"><i></i>
+  uniApp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/views/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于我
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      学习手册
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/es6" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Es6
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/ts" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/vue3.0" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Vue3.0
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/node" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Node
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-2a121430 data-v-04b97590><h3 class="title" style="display:none;" data-v-2a121430 data-v-2a121430>throttle &amp; debounce节流防抖</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2a121430 data-v-2a121430><input type="password" value="" data-v-2a121430> <span data-v-2a121430>Konck! Knock!</span> <button data-v-2a121430>OK</button></label> <div class="footer" style="display:none;" data-v-2a121430 data-v-2a121430><span data-v-2a121430><i class="iconfont reco-theme" data-v-2a121430></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2a121430>vuePress-theme-reco</a></span> <span data-v-2a121430><i class="iconfont reco-copyright" data-v-2a121430></i> <a data-v-2a121430><span data-v-2a121430>Fk</span>
+            
+          <span data-v-2a121430>2020 - </span>
+          2021
+        </a></span></div></div> <div data-v-04b97590><main class="page"><div class="page-title" style="display:none;"><h1 class="title">throttle &amp; debounce节流防抖</h1> <div data-v-d683b3c2><i class="iconfont reco-account" data-v-d683b3c2><span data-v-d683b3c2>Fk</span></i> <i class="iconfont reco-date" data-v-d683b3c2><span data-v-d683b3c2>2020-11-05</span></i> <i class="iconfont reco-eye" data-v-d683b3c2><span id="/views/JS/throttle.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-d683b3c2><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-d683b3c2><span class="tag-item" data-v-d683b3c2>Js</span><span class="tag-item" data-v-d683b3c2>utils</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="什么是节流和防抖"><a href="#什么是节流和防抖" class="header-anchor">#</a> 什么是节流和防抖？</h2> <ul><li>节流</li></ul> <p>节流的意思是，规定时间内，只触发一次。比如我们设定500ms，在这个时间内，无论点击按钮多少次，它都只会触发一次。</p> <blockquote><p>具体场景可以是抢购时候，由于有无数人 快速点击按钮，如果每次点击都发送请求，就会给服务器造成巨大的压力，但是我们进行节流后，就会大大减少请求的次数。</p></blockquote> <ul><li>防抖</li></ul> <p>防抖的意思是，在连续的操作中，无论进行了多长时间，只有某一次的操作后在指定的时间内没有再操作，这一次才被判定有效。</p> <blockquote><p>具体场景可以搜索框输入关键字过程中实时 请求服务器匹配搜索结果，如果不进行处理，那么就是输入框内容一直变化，导致一直发送请求。如果进行防抖处理，结果就是当我们输入内容完成后，一定时间(比如500ms)没有再 输入内容，这时再触发请求。</p></blockquote> <h3 id="节流"><a href="#节流" class="header-anchor">#</a> 节流</h3> <p><code>throttle(func, wait = 500, immediate = true)</code></p> <p>规定时间内，只触发一次，可以通过设置<code>immediate</code>来决定触发的时机在这个时间的开始，还是结束的时候执行。</p> <ul><li><p><code>func</code> <Function> 触发回调执行的函数</Function></p></li> <li><p><code>wait</code> <Number> 时间间隔，单位ms</Number></p></li> <li><p><code>immediate</code> <Number> 在开始还是结束处触发，比如设置wait为1000ms，如果在一秒内进行了5次操作，只触发一次，如果immediate为<code>true</code>，那么就会在第一次操作 触发回调，如果为<code>false</code>,就会在第5次操作触发回调。</Number></p></li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code>
+<span class="token keyword">let</span> timer<span class="token punctuation">,</span> flag<span class="token punctuation">;</span>
+<span class="token comment">/**
+ * 节流原理：在一定时间内，只能触发一次
+ * 
+ * @param {Function} func 要执行的回调函数 
+ * @param {Number} wait 延时的时间
+ * @param {Boolean} immediate 是否立即执行
+ * @return null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span> immediate <span class="token operator">=</span> <span class="token boolean">true</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>immediate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+			<span class="token comment">// 如果是立即执行，则在wait毫秒内开始时执行</span>
+			<span class="token keyword">typeof</span> func <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			flag <span class="token operator">=</span> <span class="token boolean">true</span>
+			<span class="token comment">// 如果是非立即执行，则在wait毫秒内的结束处执行</span>
+			timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+				flag <span class="token operator">=</span> <span class="token boolean">false</span>
+				<span class="token keyword">typeof</span> func <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div><h3 id="防抖"><a href="#防抖" class="header-anchor">#</a> 防抖</h3> <p><code>debounce(func, wait = 500, immediate = false)</code></p> <p>在连续的操作中，无论进行了多长时间，只有某一次的操作后在指定的时间内没有再操作，这一次才被判定有效</p> <ul><li><p><code>func</code> <Function> 触发回调执行的函数</Function></p></li> <li><p><code>wait</code> <Number> 时间间隔，单位ms</Number></p></li> <li><p><code>immediate</code> <Number> 在开始还是结束处触发，如非特殊情况，一般默认为<code>false</code>即可</Number></p></li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code>
+<span class="token keyword">let</span> timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 防抖原理：一定时间内，只有最后一次操作，再过wait毫秒后才执行函数
+ * 
+ * @param {Function} func 要执行的回调函数 
+ * @param {Number} wait 延时的时间
+ * @param {Boolean} immediate 是否立即执行 
+ * @return null
+ */</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">,</span> immediate <span class="token operator">=</span> <span class="token boolean">false</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// 清除定时器</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>timeout <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">// 立即执行，此类情况一般用不到</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>immediate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">var</span> callNow <span class="token operator">=</span> <span class="token operator">!</span>timeout<span class="token punctuation">;</span>
+		timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			timeout <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>callNow<span class="token punctuation">)</span> <span class="token keyword">typeof</span> func <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		<span class="token comment">// 设置定时器，当最后一次操作后，timeout不会再被清除，所以在延时wait毫秒后执行func回调方法</span>
+		timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">typeof</span> func <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/17/2021, 9:38:21 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      我是blackCat欢迎你的关注 
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-5775ee02></i></div> <canvas id="banniang" width="160" height="272" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><APlayer audio="" fixed="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/assets/js/app.4aa0e8ea.js" defer></script><script src="/assets/js/4.3a6b897f.js" defer></script><script src="/assets/js/1.97f2804a.js" defer></script><script src="/assets/js/2.13201674.js" defer></script><script src="/assets/js/36.1d919a3c.js" defer></script>
+  </body>
+</html>

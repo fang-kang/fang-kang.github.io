@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mongodb基本查询 | 凌烟</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="https://fang-kang.gitee.io/blog-img/favicon.ico">
+    <meta name="description" content="stay true to the mission.">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.c0543776.css" as="style"><link rel="preload" href="/assets/js/app.4aa0e8ea.js" as="script"><link rel="preload" href="/assets/js/4.3a6b897f.js" as="script"><link rel="preload" href="/assets/js/1.97f2804a.js" as="script"><link rel="preload" href="/assets/js/2.13201674.js" as="script"><link rel="preload" href="/assets/js/39.663ea2e3.js" as="script"><link rel="prefetch" href="/assets/js/10.956d5498.js"><link rel="prefetch" href="/assets/js/11.251f530d.js"><link rel="prefetch" href="/assets/js/12.d01bf345.js"><link rel="prefetch" href="/assets/js/13.bb070dff.js"><link rel="prefetch" href="/assets/js/14.b543585c.js"><link rel="prefetch" href="/assets/js/15.b1bcf849.js"><link rel="prefetch" href="/assets/js/16.43b94681.js"><link rel="prefetch" href="/assets/js/17.aa1e97c6.js"><link rel="prefetch" href="/assets/js/18.aa235895.js"><link rel="prefetch" href="/assets/js/19.10a3cdf0.js"><link rel="prefetch" href="/assets/js/20.a125aaa0.js"><link rel="prefetch" href="/assets/js/21.9e6ce220.js"><link rel="prefetch" href="/assets/js/22.9b80c541.js"><link rel="prefetch" href="/assets/js/23.0e9e503f.js"><link rel="prefetch" href="/assets/js/24.fcded96a.js"><link rel="prefetch" href="/assets/js/25.6a74bbbd.js"><link rel="prefetch" href="/assets/js/26.92b3b14a.js"><link rel="prefetch" href="/assets/js/27.18fb41d5.js"><link rel="prefetch" href="/assets/js/28.1d8217aa.js"><link rel="prefetch" href="/assets/js/29.910249cb.js"><link rel="prefetch" href="/assets/js/30.7ffd4cf7.js"><link rel="prefetch" href="/assets/js/31.e5afbb5b.js"><link rel="prefetch" href="/assets/js/32.796285aa.js"><link rel="prefetch" href="/assets/js/33.4042bf41.js"><link rel="prefetch" href="/assets/js/34.b887e798.js"><link rel="prefetch" href="/assets/js/35.cf4833c1.js"><link rel="prefetch" href="/assets/js/36.1d919a3c.js"><link rel="prefetch" href="/assets/js/37.4c63b466.js"><link rel="prefetch" href="/assets/js/38.4f2abbf2.js"><link rel="prefetch" href="/assets/js/40.99d7fef1.js"><link rel="prefetch" href="/assets/js/41.24ea1bda.js"><link rel="prefetch" href="/assets/js/42.5ae1c9f5.js"><link rel="prefetch" href="/assets/js/43.61430462.js"><link rel="prefetch" href="/assets/js/44.95389ae8.js"><link rel="prefetch" href="/assets/js/45.e94972fb.js"><link rel="prefetch" href="/assets/js/46.4abcad03.js"><link rel="prefetch" href="/assets/js/47.5022029f.js"><link rel="prefetch" href="/assets/js/48.15206369.js"><link rel="prefetch" href="/assets/js/49.54505c66.js"><link rel="prefetch" href="/assets/js/5.32ec8265.js"><link rel="prefetch" href="/assets/js/50.cdc116d4.js"><link rel="prefetch" href="/assets/js/51.e6b2bae7.js"><link rel="prefetch" href="/assets/js/52.88cfc911.js"><link rel="prefetch" href="/assets/js/53.ea97ed47.js"><link rel="prefetch" href="/assets/js/54.636e88d0.js"><link rel="prefetch" href="/assets/js/55.ad5ebf00.js"><link rel="prefetch" href="/assets/js/56.68db72c1.js"><link rel="prefetch" href="/assets/js/57.e92d20ec.js"><link rel="prefetch" href="/assets/js/58.f1a79bf1.js"><link rel="prefetch" href="/assets/js/59.80f3636b.js"><link rel="prefetch" href="/assets/js/6.22876f96.js"><link rel="prefetch" href="/assets/js/60.5676553a.js"><link rel="prefetch" href="/assets/js/61.823d8bbc.js"><link rel="prefetch" href="/assets/js/62.3ea4862d.js"><link rel="prefetch" href="/assets/js/63.1db0a1d6.js"><link rel="prefetch" href="/assets/js/64.5808862e.js"><link rel="prefetch" href="/assets/js/65.9539285b.js"><link rel="prefetch" href="/assets/js/66.a50ff9e7.js"><link rel="prefetch" href="/assets/js/67.03936b73.js"><link rel="prefetch" href="/assets/js/68.3cbbbf1e.js"><link rel="prefetch" href="/assets/js/69.54b2e54e.js"><link rel="prefetch" href="/assets/js/7.06eda39e.js"><link rel="prefetch" href="/assets/js/8.d5a33fd8.js"><link rel="prefetch" href="/assets/js/9.0c4df056.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c0543776.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-04b97590><div data-v-04b97590><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-04b97590 data-v-04b97590><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-2a121430 data-v-04b97590 data-v-04b97590><h3 class="title" style="display:none;" data-v-2a121430 data-v-2a121430>凌烟</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2a121430 data-v-2a121430><input type="password" value="" data-v-2a121430> <span data-v-2a121430>Konck! Knock!</span> <button data-v-2a121430>OK</button></label> <div class="footer" style="display:none;" data-v-2a121430 data-v-2a121430><span data-v-2a121430><i class="iconfont reco-theme" data-v-2a121430></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2a121430>vuePress-theme-reco</a></span> <span data-v-2a121430><i class="iconfont reco-copyright" data-v-2a121430></i> <a data-v-2a121430><span data-v-2a121430>Fk</span>
+            
+          <span data-v-2a121430>2020 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-04b97590><header class="navbar" data-v-04b97590><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://fang-kang.gitee.io/blog-img/head.jpg" alt="凌烟" class="logo"> <span class="site-name">凌烟</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Js/" class="nav-link"><i></i>
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/uniApp/" class="nav-link"><i></i>
+  uniApp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/views/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于我
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      学习手册
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/es6" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Es6
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/ts" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/vue3.0" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Vue3.0
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/node" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Node
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-04b97590></div> <aside class="sidebar" data-v-04b97590><div class="personal-info-wrapper" data-v-5641b559 data-v-04b97590><img src="https://fang-kang.gitee.io/blog-img/head.jpg" alt="author-avatar" class="personal-img" data-v-5641b559> <h3 class="name" data-v-5641b559>
+    Fk
+  </h3> <div class="num" data-v-5641b559><div data-v-5641b559><h3 data-v-5641b559>47</h3> <h6 data-v-5641b559>Article</h6></div> <div data-v-5641b559><h3 data-v-5641b559>19</h3> <h6 data-v-5641b559>Tag</h6></div></div> <hr data-v-5641b559></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      目录
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Js/" class="nav-link"><i></i>
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/categories/node/" class="nav-link"><i></i>
+  node
+</a></li><li class="dropdown-item"><!----> <a href="/categories/mongodb/" class="nav-link"><i></i>
+  mongodb
+</a></li><li class="dropdown-item"><!----> <a href="/categories/其他/" class="nav-link"><i></i>
+  其他
+</a></li><li class="dropdown-item"><!----> <a href="/categories/react/" class="nav-link"><i></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/categories/uniApp/" class="nav-link"><i></i>
+  uniApp
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/webpack/" class="nav-link"><i></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/views/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于我
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      学习手册
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/es6" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Es6
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/ts" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  TypeScript
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/vue3.0" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Vue3.0
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://fang-kang.gitee.io/node" target="_blank" rel="noopener noreferrer" class="nav-link external"><i></i>
+  Node
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/fang-kang" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-2a121430 data-v-04b97590><h3 class="title" style="display:none;" data-v-2a121430 data-v-2a121430>mongodb基本查询</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2a121430 data-v-2a121430><input type="password" value="" data-v-2a121430> <span data-v-2a121430>Konck! Knock!</span> <button data-v-2a121430>OK</button></label> <div class="footer" style="display:none;" data-v-2a121430 data-v-2a121430><span data-v-2a121430><i class="iconfont reco-theme" data-v-2a121430></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2a121430>vuePress-theme-reco</a></span> <span data-v-2a121430><i class="iconfont reco-copyright" data-v-2a121430></i> <a data-v-2a121430><span data-v-2a121430>Fk</span>
+            
+          <span data-v-2a121430>2020 - </span>
+          2021
+        </a></span></div></div> <div data-v-04b97590><main class="page"><div class="page-title" style="display:none;"><h1 class="title">mongodb基本查询</h1> <div data-v-d683b3c2><i class="iconfont reco-account" data-v-d683b3c2><span data-v-d683b3c2>Fk</span></i> <i class="iconfont reco-date" data-v-d683b3c2><span data-v-d683b3c2>2020-12-12</span></i> <i class="iconfont reco-eye" data-v-d683b3c2><span id="/views/mongodb/mongodb_base.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-d683b3c2><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-d683b3c2><span class="tag-item" data-v-d683b3c2>mongodb</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="db-collection-find-查询数据"><a href="#db-collection-find-查询数据" class="header-anchor">#</a> db.collection.find()查询数据</h2> <h4 id="语法"><a href="#语法" class="header-anchor">#</a> 语法</h4> <p><code>db.collection.find(querys, fields, options)</code></p> <h4 id="参数"><a href="#参数" class="header-anchor">#</a> 参数</h4> <ol><li><p>querys: 可选，使用查询操作符指定查询条件;</p> <div class="language-js extra-class"><pre class="language-js"><code>db<span class="token punctuation">.</span>Article<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;article_state&quot;</span><span class="token operator">:</span><span class="token string">&quot;1&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">//查询Article中所有article_state值为1的数据</span>
+</code></pre></div></li></ol> <p>其中，可以添加各种查询操作符，如:<code>$or</code>,<code>$in</code>,<code>$not</code>等</p> <ol><li><p>fields: 指定使用投影运算符返回的字段，省略此参数返回匹配文档中的所有字段;</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+field1<span class="token operator">:</span> <span class="token punctuation">,</span> <span class="token comment">//1或者true表示返回字段,0或者false表示不返回该字段</span>
+field2<span class="token operator">:</span> 
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <p>_id:默认是1，没指定返回该字段时默认会返回，设置为0时才不会返回。
+注意:投影里除了_id以外，要么全是1，要么全是0，否则会报错</p> <ol><li>options: 指定<code>sort</code>，<code>skip</code>，<code>limit</code>等条件;</li></ol> <h3 id="举个栗子"><a href="#举个栗子" class="header-anchor">#</a> 举个栗子</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> querys <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> fields <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">//设置fields，表示返回除了article_content之外的所有字段内容</span>
+  article_content<span class="token operator">:</span><span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>keyword <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> keywordReg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>keyword<span class="token punctuation">)</span>
+  querys<span class="token punctuation">.</span>$or <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token comment">//$or条件查询</span>
+    <span class="token punctuation">{</span> <span class="token string">'article_title'</span><span class="token operator">:</span> keywordReg <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token string">'article_content'</span><span class="token operator">:</span> keywordReg <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token string">'article_desc'</span><span class="token operator">:</span> keywordReg <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>tag <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  querys<span class="token punctuation">.</span>article_tags <span class="token operator">=</span> <span class="token punctuation">{</span>$<span class="token keyword">in</span><span class="token operator">:</span><span class="token punctuation">[</span>tag<span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token comment">//$in条件查询</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>state <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  querys<span class="token punctuation">.</span>article_state <span class="token operator">=</span> state<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  sort<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">'article_update_time'</span><span class="token operator">:</span> <span class="token string">'-1'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">//表示按article_update_time倒序查询</span>
+  skip<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">//跳过0条数据</span>
+  limit<span class="token operator">:</span> <span class="token number">5</span> <span class="token comment">//每次查询5条数据</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> res <span class="token operator">=</span> Article<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span>querys<span class="token punctuation">,</span>fields<span class="token punctuation">,</span>options<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><hr> <h2 id="in-or-all查询"><a href="#in-or-all查询" class="header-anchor">#</a> $in $or $all查询</h2> <ol><li><code>$in</code>:满足其中一个元素的数据
+<code>db.user.find({age: {$in:[13,73]}})</code>
+查询到<code>age</code>为13或者73的数据
+<code>db.user.find({age: {$in:[13,73]}})</code>
+查询到<code>age</code>既不是13也不是73的数据</li> <li><code>$or</code>:满足其中一个字段的元素数据
+<code>db.user.find({$or:[{age:11},{name:'xttt'}]} )</code>
+查询到<code>age</code>为11或者<code>name</code>为xttt的数据</li> <li>几个比较的查询
+<ul><li>$gt:&gt;</li> <li>$gte:&gt;=</li> <li>$lt:&lt;</li> <li>$lte:&lt;=</li> <li>$ne:!=
+<code>db.user.find({age:{$lt:100}})</code> //查询到age&lt;100的数据</li></ul></li> <li><code>$not</code>:与特定模式不匹配的文档,与正则表达式联合使用时极为有效
+<code>db.inventory.find( { price: { $not: { $gt: 1.99 } } } )</code>
+查询条件如下：<code>price</code>字段小于等于1.99或者<code>price</code>不存在。</li> <li><code>$all</code>:满足所有元素的数据
+<code>db.user.find({hobby:{$all:[&quot;足球&quot;,&quot;桌球&quot;]} })</code>
+查询到<code>hobby</code>中既有足球也有桌球的数据</li> <li><code>$mod</code>:将查询的值除以第一个给定的值，若余数等于第二个给定的值，则返回该结果
+<code>db.user.find({age:{$mod:[11,0]}})</code>
+查询到<code>age</code>是整除11的值得数据</li> <li><code>and</code>:查询指定同一个字段的多个查询条件
+<code>db.inventory.find( { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )</code>
+查询条件是<code>price</code>不等于1.99并且<code>price</code>字段存在；</li></ol> <hr> <h2 id="populate-查询"><a href="#populate-查询" class="header-anchor">#</a> .populate()查询</h2> <p>因为MongoDB是文档型数据库，所以它没有关系型数据库(数据库的两张表通过&quot;外键&quot;，建立连接关系) 特性。也就是在建立数据的关联时会比较麻烦。为了解决这个问题，Mongoose封装了一个Population功能。使用Population可以实现在一个 document 中填充其他 collection(s) 的 document(s)。</p> <p>建表，schema如下:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Schema <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">;</span>
+
+<span class="token comment">// 文章表</span>
+<span class="token keyword">let</span> articleSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  article_title<span class="token operator">:</span> String<span class="token punctuation">,</span>
+  article_tags<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    type<span class="token operator">:</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">.</span>ObjectId<span class="token punctuation">,</span> <span class="token comment">//表示关联的为ObjectId属性的值，如Tag表的_id</span>
+    ref<span class="token operator">:</span> <span class="token string">'Tag'</span> <span class="token comment">//指定与Tag表建立关联</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   article_content<span class="token operator">:</span> String
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 标签表</span>
+<span class="token keyword">let</span> TagsSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tags_name<span class="token operator">:</span> String<span class="token punctuation">,</span>
+  tags_desc<span class="token operator">:</span> String
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+exports<span class="token punctuation">.</span>Article <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'Article'</span><span class="token punctuation">,</span> articleSchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span>Tag <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'Tag'</span><span class="token punctuation">,</span> TagsSchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Article表的article_tags属性对应的是一个 ObjectId 的数组。ref表示关联Tag表(注意: 被关联的model的 type 必须是ObjectId, Number, String, 和 Buffer 才有效)。
+如上所示可以设置article_tags关联Tag，那么在获取articleSchema的document的时候就可以使用Population功能找到关联的TagsSchema的document，并且用它的内容替换掉原来关联字段article_tags的内容。
+其中一个article有许多的tag。</p> <blockquote><p>用.populate()查询：</p> <div class="language-js extra-class"><pre class="language-js"><code>Article<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>querys<span class="token punctuation">,</span>fields<span class="token punctuation">,</span>options<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">populate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ path<span class="token operator">:</span> <span class="token string">'article_tags'</span><span class="token punctuation">,</span> <span class="token comment">//表示填充的是article_tags字段</span>
+ select<span class="token operator">:</span> <span class="token string">&quot;_id tags_name tags_desc&quot;</span> <span class="token comment">//指定用Tag中哪些字段填充</span>
+<span class="token punctuation">}</span>
+</code></pre></div></blockquote> <p>语法：
+Query.populate(path, [select], [model], [match], [options])
+model
+　　类型：Model，可选，指定关联字段的 model，如果没有指定就会使用Schema的ref。
+match
+　　类型：Object，可选，指定附加的查询条件。
+options
+　　类型：Object，可选，指定附加的其他查询选项，如排序以及条数限制等等。</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">3/31/2021, 8:20:29 PM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      我是blackCat欢迎你的关注 
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-5775ee02></i></div> <canvas id="banniang" width="160" height="272" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><APlayer audio="" fixed="true" autoplay="autoplay" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/assets/js/app.4aa0e8ea.js" defer></script><script src="/assets/js/4.3a6b897f.js" defer></script><script src="/assets/js/1.97f2804a.js" defer></script><script src="/assets/js/2.13201674.js" defer></script><script src="/assets/js/39.663ea2e3.js" defer></script>
+  </body>
+</html>
